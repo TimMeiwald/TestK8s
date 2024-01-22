@@ -14,4 +14,5 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 COPY testk8s ./testk8s
 EXPOSE 5000
 WORKDIR /testk8s
+LABEL org.opencontainers.image.source=https://github.com/timmeiwald/testk8s
 CMD ["python", "-m", "main"]

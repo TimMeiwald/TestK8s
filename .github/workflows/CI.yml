@@ -1,6 +1,6 @@
 on: ["push", "workflow_dispatch"]
 jobs:
-    example-job:
+    Push-to-ghcr:
      runs-on: ubuntu-latest
      permissions:
         packages: "write"
@@ -22,7 +22,7 @@ jobs:
 
        # Build the docker image and push it.
        - name: Build image
-         uses: docker/build-push-action@v3
+         uses: docker/build-push-action@v5
          with:
            context: .
            push: true

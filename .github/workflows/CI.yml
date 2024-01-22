@@ -2,6 +2,8 @@ on: ["push", "workflow_dispatch"]
 jobs:
     example-job:
      runs-on: ubuntu-latest
+     permissions:
+        packages: "write"
      steps:
        # Checkout the code
        - name: Checkout Repo
@@ -11,7 +13,7 @@ jobs:
        # GitHub container registry.
        - 
         name: Login to GitHub Container Registry       
-        uses: docker/login-action@v4
+        uses: docker/login-action@v3
         with:
             registry: ghcr.io
             username: ${{ github.actor }}

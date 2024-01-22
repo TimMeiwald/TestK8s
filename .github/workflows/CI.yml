@@ -5,7 +5,7 @@ jobs:
      steps:
        # Checkout the code
        - name: Checkout Repo
-         uses: actions/checkout@v2
+         uses: actions/checkout@v3
        # Login to docker
        # This can be used for both Docker Hub and
        # GitHub container registry.

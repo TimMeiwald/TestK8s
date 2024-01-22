@@ -28,5 +28,5 @@ jobs:
            push: true
            # Remove the `gchr.io/` if you're pushing to
            # Docker Hub
-           tags: ghcr.io/owner/testk8s:latest
+           tags: ghcr.io/timmeiwald/testk8s:latest
  

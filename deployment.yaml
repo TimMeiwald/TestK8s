@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testk8s-deployment
+  labels:
+    app: testk8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: testk8s
+  template:
+    metadata:
+      labels:
+        app: testk8s
+    spec:
+      containers:
+      - name: testk8s
+        image: ghcr.io/timmeiwald/testk8s:latest
+        ports:
+        - containerPort: 82

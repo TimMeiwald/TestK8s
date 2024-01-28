@@ -6,12 +6,11 @@ from typing import Union
 from fastapi import FastAPI
 import uvicorn
 app = FastAPI()
-import platform
 import datetime
-
+import os
 @app.get("/")
 def read_root():
-    return {"Node": platform.uname()[1], "time": datetime.datetime.now()}
+    return {"Node ID: ": os.environ("NODE_ID"), "Pod ID: ": os.environ("POD_ID"), "time": datetime.datetime.now()}
 
 
 @app.get("/items/{item_id}")

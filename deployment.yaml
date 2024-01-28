@@ -15,7 +15,21 @@ spec:
         app: testk8s
     spec:
       containers:
-      - name: testk8s
+      - name: testk8s-deployment
         image: ghcr.io/timmeiwald/testk8s:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 82
+        - containerPort: 80 # testk8s listens on 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: testk8s-deployment
+spec:
+  type: ClusterIP
+  selector:
+    app: testk8s
+  ports:
+  - protocol: TCP
+    port: 82 # Service listens on 82 where ingress sends traffic
+    targetPort: 80 # Service then sends to port 80 on testk8s

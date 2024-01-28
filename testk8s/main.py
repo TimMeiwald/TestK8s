@@ -10,7 +10,7 @@ import datetime
 import os
 @app.get("/")
 def read_root():
-    return {"Node ID: ": os.environ("NODE_ID"), "Pod ID: ": os.environ("POD_ID"), "time": datetime.datetime.now()}
+    return {"Node ID: ": os.environ.get("NODE_ID"), "Pod ID: ": os.environ.get("POD_ID"), "time": datetime.datetime.now()}
 
 
 @app.get("/items/{item_id}")

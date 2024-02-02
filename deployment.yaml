@@ -22,9 +22,9 @@ spec:
           - containerPort: 80 # testk8s listens on 80
           env:
           - name: NODE_ID
-            value: spec.nodeName
+            value: {{ spec.nodeName }}
           - name: POD_ID
-            value: metadata.name
+            value: {{ metadata.name }}
 ---
 apiVersion: v1
 kind: Service
